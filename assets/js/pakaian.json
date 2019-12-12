@@ -1,0 +1,102 @@
+{
+    "pakaian": [
+        {
+        "nama": "Kaos thank u, next",
+        "merk": "H&M",
+        "jenis": "Kaos",
+        "ukuran": "S-M-L",
+        "deskripsi": "Kaos H&M ini merupakan kolaborasi dengan Ariana Grande",
+        "harga" : 130000,
+        "gambar" : "1.jpg"
+        },
+
+        {
+        "nama": "Celana Jogger",
+        "merk": "Zara",
+        "jenis": "Celana",
+        "ukuran":"S-M-L",
+        "deskripsi": "Celana panjang zara ini merupakan celana model jogger yang dilengkapi dengan karet",
+        "harga" :350000,
+        "gambar" : "2.jpg"
+        },
+
+        {
+        "nama": "Rok 5 Kancing",
+        "merk": "Stradivarius",
+        "jenis": "Rok",
+        "ukuran": "S-M-L",
+        "deskripsi": "Rok selutut menggunakan kain katun ini dilengkapi oleh ikat pinggang yang elastis",
+        "harga" :260000,
+        "gambar" : "3.jpg"
+        },
+
+        {
+        "nama": "Mantel",
+        "merk": "Zara",
+        "jenis": "Jaket",
+        "ukuran":"S-M-L" ,
+        "deskripsi": "Mantel ini terbuat dari bahan yang dicampur dangan kain wol",
+        "harga" : 670000,
+        "gambar" : "4.jpg"
+        },
+
+        {
+        "nama": "Jeans Jacket",
+        "merk": "Levi's",
+        "jenis": "Jaket",
+        "ukuran":"S-M-L" ,
+        "deskripsi": "Jacket ini terbuat dari bahan yang hangat yang memiliki lapisan yang lembut",
+        "harga" : 995000,
+        "gambar" : "5.jpg"
+        },
+
+        {
+        "nama": "Kaos Stranger Things",
+        "merk": "Pull&Bear",
+        "jenis": "Kaos",
+        "ukuran":"S-M-L" ,
+        "deskripsi": "Kaos ini terbuat dari katun 100%",
+        "harga" : 355000,
+        "gambar" : "6.jpg"
+        },
+
+        {
+        "nama": "Kemeja Vintage",
+        "merk": "Gucci",
+        "jenis": "Kemeja",
+        "ukuran":"S-M-L" ,
+        "deskripsi": "Kemeja berwarna putih ini menampilkan detail kancing yang terbuat dari mutiara imitasi",
+        "harga" : 999000,
+        "gambar" : "7.jpg"
+        },
+        {
+        "nama": "Rok Jeans Retro",
+        "merk": "Levi's",
+        "jenis": "Rok",
+        "ukuran":"S-M-L" ,
+        "deskripsi": "Rok denim bergaya retro ini memiliki detail berwarna putih pada bagian tengahnya",
+        "harga" : 750000,
+        "gambar" : "8.jpg"
+        },
+
+        {
+        "nama": "Celana jeans Vintage",
+        "merk": "Levi's",
+        "jenis": "Celana",
+        "ukuran":"S-M-L" ,
+        "deskripsi": "Celana bergaya modern ini mampu menampilkan ksan kaki yang panjang",
+        "harga" : 678000,
+        "gambar" : "9.jpg"
+        },
+
+        {
+        "nama": "Kemeja Asymmetric",
+        "merk": "h&m",
+        "jenis": "Kemeja",
+        "ukuran":"S-M-L" ,
+        "deskripsi": "Kemeja katun bergaris asimetris ini memiliki kancing diagonal dan dasi di satu sisi",
+        "harga" : 760000,
+        "gambar" : "10.jpg"
+        },
+    ]
+}
