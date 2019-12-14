@@ -7,6 +7,16 @@ class Pakaian_model extends CI_model
         return $this->db->get('pakaian')->result_array();
     }
 
+    public function getProduct($limit, $start)
+    {
+        return $this->db->get('pakaian', $limit, $start)->result_array();
+    }
+
+    public function countAllProduct()
+    {
+        return $this->db->get('pakaian')->num_rows();
+    }
+
     public function tambahDataPakaian($foto)
     {
         $data = [
