@@ -18,6 +18,23 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
         if ($this->form_validation->run() == false) {
             $data['title'] =  'WPU User Login';
+            $this->load->view('templates/header', $data);
+            $this->load->view('auth/index');
+            $this->load->view('templates/footer');
+        } else {
+            $this->_login();
+        }
+    }
+
+    public function login()
+    {
+        if ($this->session->userdata('email')) {
+            redirect('user');
+        }
+        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required');
+        if ($this->form_validation->run() == false) {
+            $data['title'] =  'WPU User Login';
             $this->load->view('templates/auth_header', $data);
             $this->load->view('auth/login');
             $this->load->view('templates/auth_footer');
