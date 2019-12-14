@@ -2361,3 +2361,11 @@ ol {
 		padding: 10px 0;
 	}
 }
+
+.img_card {  
+	transition: all 0.5s ease;
+}
+
+.img_card:hover {
+	  transform: scale(1.2);
+}

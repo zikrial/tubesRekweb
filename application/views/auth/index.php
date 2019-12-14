@@ -23,16 +23,7 @@ $pakaian = $pakaian["pakaian"];
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Clothes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Jacket</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pants</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Skirt</a>
+                        <a class="nav-link" href="#Product">Product</a>
                     </li>
 
                 </ul>
@@ -43,6 +34,7 @@ $pakaian = $pakaian["pakaian"];
             </div>
 
             <!-- end navbar -->
+
             <!-- Sidebar Toggle (Topbar) -->
 
             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -56,7 +48,7 @@ $pakaian = $pakaian["pakaian"];
 
                 <!-- Nav Item - User Information -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="<?= base_url('auth/login'); ?>">Login</a>
                 </li>
 
             </ul>
@@ -102,7 +94,7 @@ $pakaian = $pakaian["pakaian"];
         </div>
 
         <!-- Latest Product Begin -->
-        <section class="latest-products spad">
+        <section class="latest-products spad" id="Product">
             <div class="container">
                 <div class="product-filter">
                     <div class="row">
@@ -122,14 +114,14 @@ $pakaian = $pakaian["pakaian"];
                 </div>
                 <div class="row" id="product-list">
                     <?php foreach ($pakaian as $p) : ?>
-                        <div class="col-lg-3 col-sm-6 mix all <?= $p["jenis"]; ?> bags">
+                        <div class="col-lg-3 col-sm-6 mix all <?= $p["jenis"]; ?> bags" id="<?= $p["jenis"]; ?>">
                             <div class="single-product-item">
-                                <figure>
-                                    <a href="#"><img src="<?= base_url('assets/'); ?>img/pakaian/<?= $p["gambar"] ?>"></a>
+                                <figure class="detail">
+                                    <img src="<?= base_url('assets/'); ?>img/pakaian/<?= $p["gambar"] ?>" class="img_card">
                                 </figure>
                                 <div class="product-text">
                                     <h6><?= $p["nama"] ?></h6>
-                                    <p>Idr. <?= $p["harga"] ?></p>
+                                    <p>IDR. <?= $p["harga"] ?></p>
                                 </div>
                             </div>
                         </div>

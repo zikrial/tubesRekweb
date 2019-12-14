@@ -47,6 +47,31 @@
     </div>
 </div>
 
+<!-- Modal Index -->
+<div class="modal fade" id="modalDetailIndex" tabindex="-1" role="dialog" aria-labelledby="modalDetailIndex" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalDetailIndexTitle">Detail Product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="<?= $pakaian["gambar"] ?>" class="img-thumbnail">
+                <p>Name : <?= $pakaian["nama"] ?></p>
+                <p>Brand : <?= $pakaian["merk"] ?></p>
+                <p>Category : <?= $pakaian["jenis"] ?></p>
+                <p>Price : <?= $pakaian["harga"] ?></p>
+                <p>Decription : <?= $pakaian["deskripsi"] ?></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Order Now !</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Bootstrap core JavaScript-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
