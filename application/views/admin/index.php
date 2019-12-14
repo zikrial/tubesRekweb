@@ -16,6 +16,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
+                            <th>#</th>
                             <th>Name</th>
                             <th>Brand</th>
                             <th>Type</th>
@@ -28,6 +29,7 @@
                     <tbody>
                         <?php foreach ($pakaian as $p) : ?>
                             <tr>
+                                <td><?= ++$start; ?></td>
                                 <td><?= $p['Nama_Pakaian'] ?></td>
                                 <td><?= $p['Merk_Pakaian'] ?></td>
                                 <td><?= $p['Jenis_Pakaian'] ?></td>
