@@ -1,8 +1,16 @@
 <!-- Footer -->
-<footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Super Gengs <?= date('Y'); ?></span>
+<footer class="footer-section spad">
+    <div class="container">
+        <div class="footer-widget">
+            <li class="single-footer-widget">
+                <h4>About us</h4>
+                <ul>
+                    <li>Sumpram Team</li>
+                    <li> © 2019 </li>
+                    <li><i class="fas fa-map-marker-alt"></i> Jl. Gg. Hj. Ridho II, Gegerkalong no 61, Kecamatan Sukasari, Bandung</li>
+                    <li><i class="fas fa-phone-alt"></i> 087824166454</li>
+                    <li><i class="far fa-envelope"></i> sumpram@mail.com</li>
+                </ul>
         </div>
     </div>
 </footer>
