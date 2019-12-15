@@ -1,10 +1,15 @@
                 <!-- Begin Page Content -->
+                <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
                 <div class="container-fluid">
-
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-
-
+                    <div class="row">
+                        <?php foreach ($pakaian as $p) : ?> <div class="det-cards"> <img src="<?= base_url('assets/img/pakaian/') . $p['Gambar_Pakaian'] ?>" class="image-cards" style="width:100%">
+                                <div class="container-card col-lg-5">
+                                    <h4><b><?= $p['Nama_Pakaian'] ?></b></h4>
+                                    <p>IDR. <?= number_format($p["Harga_Pakaian"], 2, ',', '.'); ?></p>
+                                </div>
+                            </div><?php endforeach; ?>
+                    </div>
                 </div>
                 <!-- /.container-fluid -->
 

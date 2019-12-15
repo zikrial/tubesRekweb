@@ -15,8 +15,6 @@ class Admin extends CI_Controller
     public function index()
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
-        $data['pakaian'] = $this->Pakaian_model->getAllProduct();
         $data['title'] =  'Product Management';
 
         $this->load->library('pagination');
@@ -70,12 +68,12 @@ class Admin extends CI_Controller
         // $this->form_validation->set_rules('Deskripsi_Pakaian', 'Deskripsi_Pakaian', 'required');
 
         // if ($this->form_validation->run() == false) {
-        $data['title'] =  'Product Management';
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('admin/index', $data);
-        $this->load->view('templates/footer');
+        // $data['title'] =  'Product Management';
+        // $this->load->view('templates/header', $data);
+        // $this->load->view('templates/sidebar', $data);
+        // $this->load->view('templates/topbar', $data);
+        // $this->load->view('admin/index', $data);
+        // $this->load->view('templates/footer');
 
 
         // } else {

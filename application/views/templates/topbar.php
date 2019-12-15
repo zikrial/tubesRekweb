@@ -11,22 +11,18 @@
                 <ul class="navbar-nav mr-auto">
 
                   <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
-                  </li>
-
-                  <li class="nav-item active">
-                    <a class="nav-link" href="#">Product</a>
+                    <a class="nav-link" href="<?= base_url('user') ?>">Home</a>
                   </li>
 
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Category
+                      Product
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">Baju</a>
-                      <a class="dropdown-item" href="#">Celana </a>
-                      <a class="dropdown-item" href="#">Rok</a>
-                      <a class="dropdown-item" href="#">Jaket</a>
+                      <a class="dropdown-item" href="#">Clothes</a>
+                      <a class="dropdown-item" href="#">Jackets </a>
+                      <a class="dropdown-item" href="#">Pants</a>
+                      <a class="dropdown-item" href="#">Skirts</a>
                     </div>
                   </li>
 

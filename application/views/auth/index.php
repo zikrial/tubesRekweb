@@ -121,7 +121,7 @@ $pakaian = $pakaian["pakaian"];
                                 </figure>
                                 <div class="product-text">
                                     <h6><?= $p["nama"] ?></h6>
-                                    <p>IDR. <?= $p["harga"] ?></p>
+                                    <p>IDR. <?= number_format($p["harga"], 2, ',', '.'); ?></p>
                                 </div>
                             </div>
                         </div>

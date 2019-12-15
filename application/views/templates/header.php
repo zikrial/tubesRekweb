@@ -24,6 +24,27 @@
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
+    <style>
+        .det-cards {
+            float: right;
+            transition: 0.3s;
+            padding: 20px;
+            width: 30%;
+            border-radius: 5px;
+        }
+
+        .det-cards:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .image-cards {
+            border-radius: 5px 5px 5px 5px;
+        }
+
+        .container-card {
+            padding: 2px 16px;
+        }
+    </style>
 
 </head>
 
