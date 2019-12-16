@@ -19,10 +19,10 @@
                       Product
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">Clothes</a>
-                      <a class="dropdown-item" href="#">Jackets </a>
-                      <a class="dropdown-item" href="#">Pants</a>
-                      <a class="dropdown-item" href="#">Skirts</a>
+                      <a class="dropdown-item" href="<?= base_url('user/product') ?>/Baju">Clothes</a>
+                      <a class="dropdown-item" href="<?= base_url('user/product') ?>/Jaket">Jackets </a>
+                      <a class="dropdown-item" href="<?= base_url('user/product') ?>/Celana">Pants</a>
+                      <a class="dropdown-item" href="<?= base_url('user/product') ?>/Rok">Skirts</a>
                     </div>
                   </li>
 

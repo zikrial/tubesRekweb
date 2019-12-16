@@ -6,7 +6,13 @@ class Pakaian_model extends CI_model
     {
         return $this->db->get('pakaian')->result_array();
     }
+    
+    public function getAllProductJenis($jenis)
+    {
+        return $this->db->get_where('pakaian', ['Jenis_Pakaian'=> $jenis])->result_array();
+    }
 
+    
     public function getProduct($limit, $start)
     {
         return $this->db->get('pakaian', $limit, $start)->result_array();

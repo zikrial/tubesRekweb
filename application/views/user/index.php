@@ -1,5 +1,5 @@
                 <!-- Begin Page Content -->
-                <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+                <h1 class=" mb-4 text-gray-800 text-center"><?= $title; ?></h1>
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <div class="row">

@@ -123,7 +123,8 @@ $pakaian = $pakaian["pakaian"];
                         <div class="col-lg-3 col-sm-6 mix all <?= $p["jenis"]; ?> bags" id="<?= $p["jenis"]; ?>">
                             <div class="single-product-item">
                                 <figure class="detail">
-                                    <img src="<?= base_url('assets/'); ?>img/pakaian/<?= $p["gambar"] ?>" class="img_card">
+                                    <img src="<?= base_url('assets/'); ?>img/pakaian/<?= $p["gambar"] ?>" class="img_card" >
+                                    
                                 </figure>
                                 <div class="product-text">
                                     <h6><?= $p["nama"] ?></h6>
