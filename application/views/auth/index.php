@@ -25,12 +25,11 @@ $pakaian = $pakaian["pakaian"];
                     <li class="nav-item">
                         <a class="nav-link" href="#Product">Product</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#About">About Us</a>
+                    </li>
 
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Cari Produk" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
             </div>
 
             <!-- end navbar -->
@@ -44,9 +43,10 @@ $pakaian = $pakaian["pakaian"];
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
 
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('auth/registration'); ?>">Register</a>
+                </li>
                 <div class="topbar-divider d-none d-sm-block"></div>
-
-                <!-- Nav Item - User Information -->
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('auth/login'); ?>">Login</a>
                 </li>
@@ -63,7 +63,7 @@ $pakaian = $pakaian["pakaian"];
                             <div class="col-lg-12">
                                 <h1>My Fashion</h1>
                                 <h2>Cool Clothes Place</h2>
-                                <a href="#" class="primary-btn">See Product</a>
+                                <a href="#Product" class="primary-btn">See Product</a>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@ $pakaian = $pakaian["pakaian"];
                             <div class="col-lg-12">
                                 <h1>My Fashion</h1>
                                 <h2>Cute Women's Fashion</h2>
-                                <a href="#" class="primary-btn">See Product</a>
+                                <a href="#Product" class="primary-btn">See Product</a>
                             </div>
                         </div>
                     </div>
@@ -85,7 +85,7 @@ $pakaian = $pakaian["pakaian"];
                             <div class="col-lg-12">
                                 <h1>My Fashion</h1>
                                 <h2>Quality Product</h2>
-                                <a href="#" class="primary-btn">See Product</a>
+                                <a href="#Product" class="primary-btn">See Product</a>
                             </div>
                         </div>
                     </div>
@@ -102,6 +102,12 @@ $pakaian = $pakaian["pakaian"];
                             <div class="section-title">
                                 <h2>Latest Products</h2>
                             </div>
+
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control" type="search" placeholder="Cari Produk">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+
                             <ul class="product-controls">
                                 <li data-filter="*">All</li>
                                 <li data-filter=".Baju">Dresses</li>

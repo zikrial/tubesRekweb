@@ -3,7 +3,7 @@
     <div class="container">
         <div class="footer-widget">
             <li class="single-footer-widget">
-                <h4>About us</h4>
+                <h4 id="About">About us</h4>
                 <ul>
                     <li>Sumpram Team</li>
                     <li> © 2019 </li>

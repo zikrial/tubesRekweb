@@ -33,7 +33,7 @@
                                 <td><?= $p['Nama_Pakaian'] ?></td>
                                 <td><?= $p['Merk_Pakaian'] ?></td>
                                 <td><?= $p['Jenis_Pakaian'] ?></td>
-                                <td><?= $p['Harga_Pakaian'] ?></td>
+                                <td><?= number_format($p["Harga_Pakaian"], 2, ',', '.'); ?></td>
                                 <td><?= $p['Deskripsi_Pakaian'] ?></td>
                                 <td><img src="<?= base_url('assets/img/pakaian/') . $p['Gambar_Pakaian'] ?>" class="img-thumbnail" width="150px"></td>
                                 <td>
