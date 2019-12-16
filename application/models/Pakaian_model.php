@@ -29,4 +29,8 @@ class Pakaian_model extends CI_model
         ];
         return $this->db->insert('pakaian', $data);
     }
+
+    public function getPakaianbyid($id){
+        return $this->db->get_where('pakaian', ['Id_Pakaian'=> $id])->row_array();
+    }
 }

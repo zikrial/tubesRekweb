@@ -84,6 +84,20 @@ class User extends CI_Controller
         }
     }
 
+    public function detail($id){
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['pakaian'] = $this->db->get_where('pakaian', ['Id_Pakaian'=> $id])->row_array();
+
+        $data['title'] =  'My Fashion';
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('user/detail', $data);
+        $this->load->view('templates/footer');
+
+    
+    }
     public function changePassword()
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
