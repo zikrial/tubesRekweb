@@ -38,7 +38,7 @@
                                 <td><img src="<?= base_url('assets/img/pakaian/') . $p['Gambar_Pakaian'] ?>" class="img-thumbnail" width="150px"></td>
                                 <td>
                                     <a href="" class="badge badge-success">edit</a>
-                                    <a href="" class="badge badge-danger">delete</a>
+                                    <a href="<?= base_url(); ?>admin/delete/<?= $p['Id_Pakaian']; ?>" class="badge badge-danger" onclick="return confirm('apakah anda yakin?');">delete</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

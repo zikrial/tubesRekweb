@@ -29,4 +29,11 @@ class Pakaian_model extends CI_model
         ];
         return $this->db->insert('pakaian', $data);
     }
+
+    public function hapusDataAdmin($Id_Pakaian) 
+    {
+        $this->db->where('Id_Pakaian', $Id_Pakaian);
+        $this->db->delete('pakaian');
+    }
+
 }

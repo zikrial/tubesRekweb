@@ -150,4 +150,11 @@ class Admin extends CI_Controller
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Access Changed!</div>');
     }
+
+    public function delete($Id_Pakaian) 
+    {
+        $this->Pakaian_model->hapusDataAdmin($Id_Pakaian);
+        $this->session->set_flashdata('flash','Dihapus');
+        redirect('admin');
+    }
 }
