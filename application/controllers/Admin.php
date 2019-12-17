@@ -150,4 +150,28 @@ class Admin extends CI_Controller
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Access Changed!</div>');
     }
+
+    public function edit()
+
+    {
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['pakaian'] = $this->db->get('pakaian')->result_array();
+
+        $config['upload_path'] = './assets/img/pakaian/';
+        $config['allowed_types'] = 'jpg|png|jpeg|gif';
+        $config['max_size'] = '2048';  //2MB max
+        $config['max_width'] = '4480'; // pixel
+        $config['max_height'] = '4480'; // pixel
+        $config['file_name'] = $_FILES['Gambar_Pakaian']['name'];
+        $this->upload->initialize($config);
+
+        if (!empty($_FILES['Gambar_Pakaian']['name'])) {
+            if ($this->upload->do_upload('edit')) {
+                $foto = $this->upload->data();
+                $this->Pakaian_model->editDataPakaian($foto);
+            }
+        }
+        redirect('admin');
+
+    }
 }

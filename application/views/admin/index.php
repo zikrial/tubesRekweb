@@ -37,7 +37,7 @@
                                 <td><?= $p['Deskripsi_Pakaian'] ?></td>
                                 <td><img src="<?= base_url('assets/img/pakaian/') . $p['Gambar_Pakaian'] ?>" class="img-thumbnail" width="150px"></td>
                                 <td>
-                                    <a href="" class="badge badge-success">edit</a>
+                                    <a href="<? base_url(); ?>admin/edit/<?= $p['Id_Pakaian']; ?>" class="badge badge-success">edit</a>
                                     <a href="" class="badge badge-danger">delete</a>
                                 </td>
                             </tr>
