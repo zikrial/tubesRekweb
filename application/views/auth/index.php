@@ -103,11 +103,6 @@ $pakaian = $pakaian["pakaian"];
                                 <h2>Latest Products</h2>
                             </div>
 
-                            <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control" type="search" placeholder="Cari Produk">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                            </form>
-
                             <ul class="product-controls">
                                 <li data-filter="*">All</li>
                                 <li data-filter=".Baju">Dresses</li>
@@ -124,6 +119,7 @@ $pakaian = $pakaian["pakaian"];
                             <div class="single-product-item">
                                 <figure class="detail">
                                     <img src="<?= base_url('assets/'); ?>img/pakaian/<?= $p["gambar"] ?>" class="img_card">
+
                                 </figure>
                                 <div class="product-text">
                                     <h6><?= $p["nama"] ?></h6>

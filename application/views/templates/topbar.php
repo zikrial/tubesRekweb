@@ -19,18 +19,22 @@
                       Product
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">Clothes</a>
-                      <a class="dropdown-item" href="#">Jackets </a>
-                      <a class="dropdown-item" href="#">Pants</a>
-                      <a class="dropdown-item" href="#">Skirts</a>
+                      <a class="dropdown-item" href="<?= base_url('user/product') ?>/Baju">Clothes</a>
+                      <a class="dropdown-item" href="<?= base_url('user/product') ?>/Jaket">Jackets </a>
+                      <a class="dropdown-item" href="<?= base_url('user/product') ?>/Celana">Pants</a>
+                      <a class="dropdown-item" href="<?= base_url('user/product') ?>/Rok">Skirts</a>
                     </div>
                   </li>
 
+                  <li class="nav-item active">
+                    <a class="nav-link" href="<?= base_url('user') ?>">Cart</a>
+                  </li>
+
+                  <li class="nav-item active">
+                    <a class="nav-link" href="<?= base_url('user') ?>">Top up</a>
+                  </li>
+
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Cari Produk" aria-label="Search">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
               </div>
 
               <!-- end navbar -->

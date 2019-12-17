@@ -37,8 +37,13 @@
                                 <td><?= $p['Deskripsi_Pakaian'] ?></td>
                                 <td><img src="<?= base_url('assets/img/pakaian/') . $p['Gambar_Pakaian'] ?>" class="img-thumbnail" width="150px"></td>
                                 <td>
+<<<<<<< HEAD
                                     <a href="" class="badge badge-success">edit</a>
                                     <a href="<?= base_url(); ?>admin/delete/<?= $p['Id_Pakaian']; ?>" class="badge badge-danger" onclick="return confirm('apakah anda yakin?');">delete</a>
+=======
+                                    <a href="<? base_url(); ?>admin/edit/<?= $p['Id_Pakaian']; ?>" class="badge badge-success">edit</a>
+                                    <a href="" class="badge badge-danger">delete</a>
+>>>>>>> 385fd12c41c91feedcb71f4a15b812190b80c168
                                 </td>
                             </tr>
                         <?php endforeach; ?>
