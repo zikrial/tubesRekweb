@@ -36,16 +36,13 @@ class Pakaian_model extends CI_model
         return $this->db->insert('pakaian', $data);
     }
 
-<<<<<<< HEAD
     public function hapusDataAdmin($Id_Pakaian) 
     {
         $this->db->where('Id_Pakaian', $Id_Pakaian);
         $this->db->delete('pakaian');
     }
 
-=======
     public function getPakaianbyid($id){
         return $this->db->get_where('pakaian', ['Id_Pakaian'=> $id])->row_array();
     }
->>>>>>> 385fd12c41c91feedcb71f4a15b812190b80c168
 }
