@@ -22,11 +22,25 @@ class User extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function cart()
+    {
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['transaksi'] = $this->db->get('transaksi')->result_array();
+        $data['pakaian'] = $this->db->get('transaksi')->result_array();
+        $data['title'] =  'Shopping Cart';
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('user/cart', $data);
+        $this->load->view('templates/footer');
+    }
+
     public function product($jenis)
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data['pakaian'] = $this->db->get_where('pakaian', ['Jenis_Pakaian'=> $jenis])->result_array();
+        $data['pakaian'] = $this->db->get_where('pakaian', ['Jenis_Pakaian' => $jenis])->result_array();
         $data['title'] =  'My Fashion';
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -97,10 +111,11 @@ class User extends CI_Controller
         }
     }
 
-    public function detail($id){
+    public function detail($id)
+    {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data['pakaian'] = $this->db->get_where('pakaian', ['Id_Pakaian'=> $id])->row_array();
+        $data['pakaian'] = $this->db->get_where('pakaian', ['Id_Pakaian' => $id])->row_array();
 
         $data['title'] =  'My Fashion';
         $this->load->view('templates/header', $data);
@@ -108,8 +123,6 @@ class User extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('user/detail', $data);
         $this->load->view('templates/footer');
-
-    
     }
     public function changePassword()
     {
@@ -148,5 +161,22 @@ class User extends CI_Controller
                 }
             }
         }
+    }
+
+    public function tambahCart()
+    {
+
+        $this->load->model('Pakaian_model');
+        $this->load->model('Transaksi_model');
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['title'] = 'Shopping Cart';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('user/cart', $data);
+        $this->load->view('templates/footer');
+        $this->Transaksi_model->tambahTransaksi();
+        redirect('user/cart');
     }
 }

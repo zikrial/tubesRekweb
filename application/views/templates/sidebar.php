@@ -59,6 +59,18 @@
                 <?php endforeach; ?>
 
                 <div class="sidebar-heading">
+                    Transaction
+                </div>
+
+                <li class="nav-item">
+                    <a class="nav-link pb-0" href="<?= base_url('user/cart'); ?>">
+                        <i class="fas fa-fw fa-cart-plus"></i>
+                        <span>Cart</span></a>
+                </li>
+
+                <hr class="sidebar-divider mt-3">
+
+                <div class="sidebar-heading">
                     Product
                 </div>
 
@@ -86,18 +98,6 @@
                         <span>Skirts</span></a>
                 </li>
 
-                <hr class="sidebar-divider mt-3">
-
-                <div class="sidebar-heading">
-                    Shop
-                </div>
-
-                <li class="nav-item">
-                    <a class="nav-link pb-0" href="<?= base_url('user/cart'); ?>">
-                        <i class="fas fa-fw fa-cart-plus"></i>
-                        <span>Cart</span></a>
-                </li>
-                <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block">
 
                 <!-- Sidebar Toggler (Sidebar) -->
