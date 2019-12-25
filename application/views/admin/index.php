@@ -37,8 +37,8 @@
                                 <td><?= $p['Deskripsi_Pakaian'] ?></td>
                                 <td><img src="<?= base_url('assets/img/pakaian/') . $p['Gambar_Pakaian'] ?>" class="img-thumbnail" width="150px"></td>
                                 <td>
-                                    <a href="" class="badge badge-success">edit</a>
-                                    <a href="" class="badge badge-danger">delete</a>
+                                    <a href="<?= base_url(); ?>admin/delete/<?= $p['Id_Pakaian']; ?>" class="badge badge-danger" onclick="return confirm('apakah anda yakin?');">delete</a>
+                                    <a href="<?= base_url(); ?>admin/edit/<?= $p['Id_Pakaian']; ?>" class="badge badge-success"  data-toggle="modal" data-target="#editProductModal">edit</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -66,6 +66,60 @@
                 </button>
             </div>
             <form action="<?= base_url('admin/tambah'); ?>" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="Nama_Pakaian" name="Nama_Pakaian" placeholder="Name Product">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="Merk_Pakaian" name="Merk_Pakaian" placeholder="Brand Product">
+                    </div>
+                    <div class="form-group">
+                        <select name="Jenis_Pakaian" id="Jenis_Pakaian" class="form-control">
+                            <option value="">Type Product</option>
+                            <option value="Baju">Clothes</option>
+                            <option value="Jaket">Jackets</option>
+                            <option value="Celana">Pants</option>
+                            <option value="Rok">Skirts</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="Harga_Pakaian" name="Harga_Pakaian" placeholder="Price Product">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="Deskripsi_Pakaian" id="Deskripsi_Pakaian" cols="55" rows="10" placeholder="Decription Product"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">Picture</div>
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="Gambar_Pakaian">
+                                    <label class="custom-file-label" for="Gambar_Pakaian" name="Gambar_Pakaian">Choosen file</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" name="tambah">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="editProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editProductModalLabel">Edit Product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="<?= base_url('admin/ubah'); ?>" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="text" class="form-control" id="Nama_Pakaian" name="Nama_Pakaian" placeholder="Name Product">
