@@ -9,7 +9,7 @@
                                 <div class="container-card col-lg-5">
                                     <h6><b><?= $p['Nama_Pakaian'] ?></b></h6>
                                     <p>IDR. <?= number_format($p["Harga_Pakaian"], 2, ',', '.'); ?></p>
-                                    <a href="<?= base_url() ?>user/detail/<?= $p['Id_Pakaian']; ?>" class="btn btn-primary" style="background-color: #ff4da6">Detail</a>
+                                    <a href="<?= base_url() ?>user/detail/<?= $p['Id_Pakaian']; ?>" class="btn btn-primary" style="background-color: #ff4da6; width: 310px;">See Product</a>
                                 </div>
                             </div><?php endforeach; ?>
                     </div>

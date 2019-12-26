@@ -216,7 +216,7 @@ class User extends CI_Controller
         } else {
             $this->db->where('id', $iduser);
             $this->db->update('user', $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Saldo successfully added!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">You have successfully added saldo!</div>');
             redirect('user');
         }
     }

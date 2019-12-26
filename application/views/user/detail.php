@@ -51,7 +51,7 @@
               <option value="<?= $u; ?>"><?= $u; ?></option>
             <?php endforeach; ?>
           </select>
-          <input type="number" class="form-control mb-1" id="Jumlah_Pakaian" name="Jumlah_Pakaian" placeholder="Quantity" style="width: 110px">
+          <input type="number" class="form-control mb-1" id="Jumlah_Pakaian" name="Jumlah_Pakaian" placeholder="Quantity" style="width: 110px;">
           <button type="submit" class="btn btn-success mb-1" name="tambah"><i class="fas fa-fw fa-cart-plus"></i> Add to Cart</button>
           <a href="<?= base_url() ?>user" class="btn btn-primary">Back</a>
         </form>
