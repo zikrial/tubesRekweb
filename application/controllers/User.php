@@ -49,7 +49,6 @@ class User extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-
     public function profile()
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -180,6 +179,7 @@ class User extends CI_Controller
         $this->Transaksi_model->tambahTransaksi();
         redirect('user/cart');
     }
+
     public function deleteCart($id)
     {
         $this->load->model('Transaksi_model');
@@ -193,15 +193,16 @@ class User extends CI_Controller
     public function topSaldo()
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $iduser = $this->input->post('id');
+        $saldo = $this->input->post('saldo');
+        $saldouser = $this->input->post('saldouser');
 
-        $this->db->select('saldo');
-        $saldo = $this->db->get('user');
-
-        $tambah = $this->input->post('saldo');
-
+        $total = $saldo + $saldouser;
         $data = [
-            "saldo" => $this->input->post('saldo')
+            "saldo" => $total
         ];
-        $this->db->insert('user', $data);
+        $this->db->where('id', $iduser);
+        $this->db->update('user', $data);
+        redirect('user');
     }
 }

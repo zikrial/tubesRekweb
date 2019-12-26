@@ -125,10 +125,25 @@ class Admin extends CI_Controller
         redirect('admin');
     }
 
-    public function ubah()
+
+    public function ubah($Id_Pakaian)
     {
-        $data['judul'] = 'Edit Data';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['pakaian'] = $this->db->get_where('pakaian', ['Id_Pakaian' => $Id_Pakaian])->row_array();
+        $data['title'] =  'Edit Fashion';
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/ubah', $data);
+        $this->load->view('templates/footer');
+
+        return $this->Pakaian_model->ubahDataPakaian();
+        redirect('admin');
+    }
+
+    public function getubah()
+    {
         $this->Pakaian_model->ubahDataPakaian();
+        redirect('admin');
     }
 }

@@ -83,6 +83,8 @@
                 </button>
             </div>
             <form action="<?= base_url('user/topSaldo'); ?>" method="post">
+                <input type="hidden" name="id" value="<?= $user['id'] ?>">
+                <input type="hidden" name="saldouser" value="<?= $user['saldo'] ?>">
                 <div class="modal-body">
                     <div class=" form-group">
                         <select name="saldo" id="saldo" class="form-control">
@@ -96,7 +98,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a href="" type="submit" class="btn btn-primary" name="topSaldo">Top Up</a>
+                    <button type="submit" class="btn btn-primary" name="topSaldo">Top Up</button>
                 </div>
             </form>
         </div>
