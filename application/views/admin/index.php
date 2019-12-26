@@ -10,7 +10,7 @@
         </div>
         <div class="card-body">
 
-            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newProductModal">Add New Product</a>
+            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newProductModal" style="background-color: #ff4da6">Add New Product</a>
 
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -81,7 +81,12 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Harga_Pakaian" name="Harga_Pakaian" placeholder="Price Product">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">IDR. </div>
+                            </div>
+                            <input type="text" class="form-control" id="Harga_Pakaian" name="Harga_Pakaian" placeholder="Price Product">
+                        </div>
                     </div>
                     <div class="form-group">
                         <textarea name="Deskripsi_Pakaian" id="Deskripsi_Pakaian" cols="55" rows="10" placeholder="Decription Product"></textarea>
@@ -101,51 +106,6 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary" name="tambah">Add</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="editProductModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editProductModalLabel">Edit Product</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action="<?= base_url('admin/ubah'); ?>" method="post">
-                <input type="hidden" name="Id_Pakaian" value="<?= $p['Id_Pakaian']; ?>">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="Nama_Pakaian" name="Nama_Pakaian" placeholder="Name Product" value="<?= $p['Nama_Pakaian']; ?>">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="Merk_Pakaian" name="Merk_Pakaian" placeholder="Brand Product" value="<?= $p['Merk_Pakaian']; ?>">
-                    </div>
-                    <div class=" form-group">
-                        <select name="Jenis_Pakaian" id="Jenis_Pakaian" class="form-control">
-                            <option value="">Type Product</option>
-                            <option value="Baju">Clothes</option>
-                            <option value="Jaket">Jackets</option>
-                            <option value="Celana">Pants</option>
-                            <option value="Rok">Skirts</option>
-                        </select>
-
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="Harga_Pakaian" name="Harga_Pakaian" placeholder="Price Product" value="<?= $p['Harga_Pakaian']; ?>">
-                    </div>
-                    <div class="form-group">
-                        <textarea name="Deskripsi_Pakaian" id="Deskripsi_Pakaian" cols="55" rows="10" placeholder="Decription Product"><?= $p['Deskripsi_Pakaian']; ?></textarea>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a href="" type="submit" class="btn btn-primary" name="ubah">Edit</a>
                 </div>
             </form>
         </div>

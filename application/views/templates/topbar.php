@@ -10,9 +10,16 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
 
+                  <!-- <li class="nav-item active">
+                    <a class="navbar-brand" href="#">
+                      <img src="<?= base_url('assets/'); ?>img/icon.png" width="200px" height="55px">
+                    </a>
+                  </li> -->
+
                   <li class="nav-item active">
                     <a class="nav-link" href="<?= base_url('user') ?>">Home</a>
                   </li>
+
 
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -61,6 +68,14 @@
                     <a class="dropdown-item" href="<?= base_url('user/profile'); ?>">
                       <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                       My Profile
+                    </a>
+                    <a class="dropdown-item" href="<?= base_url('user/edit'); ?>">
+                      <i class="fas fa-user-edit fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Edit Profile
+                    </a>
+                    <a class="dropdown-item" href="<?= base_url('user/changePassword'); ?>">
+                      <i class="fas fa-lock fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Change Password
                     </a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="<?= base_url('auth/logout'); ?>" data-toggle="modal" data-target="#logoutModal">

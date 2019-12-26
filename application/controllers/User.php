@@ -205,4 +205,31 @@ class User extends CI_Controller
         $this->db->update('user', $data);
         redirect('user');
     }
+
+    public function payProduk()
+    {
+        $this->load->model('Transaksi_model');
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $iduser = $this->input->post('id');
+        $saldo = $this->input->post('saldo');
+        $total = $this->input->post('total');
+
+        if ($saldo > $total) {
+            $pay = $saldo - $total;
+        }
+        $data = [
+            "saldo" => $pay
+        ];
+        $this->db->where('id', $iduser);
+        $this->db->update('user', $data);
+        $this->Transaksi_model->hapusProduk();
+        redirect('user/cart');
+    }
+
+    public function cancelTransaksi()
+    {
+        $this->load->model('Transaksi_model');
+        $this->Transaksi_model->hapusProduk();
+        redirect('user/cart');
+    }
 }

@@ -14,6 +14,8 @@
         <tbody>
             <?php $i = 0;
             $total = 0; ?>
+
+
             <?php foreach ($transaksi as $t) : ?>
                 <tr>
                     <td><?= ++$i; ?></td>
@@ -28,13 +30,28 @@
                 </tr>
                 <?php $total += $t["Total_Harga"] ?>
             <?php endforeach; ?>
+            <?php if ($i == 0) : ?>
+                <tr>
+                    <td colspan="6">
+                        The cart is currently empty, order something
+                    </td>
+                </tr>
+            <?php endif; ?>
         </tbody>
     </table>
 </div>
 <div class="m-3">
     <table>
         <tr>
-            <td><a href="" class="btn btn-success">Pay Now</a></td>
+            <td>
+                <form action="<?= base_url('user/payProduk'); ?>" method="post">
+                    <input type="hidden" name="id" value="<?= $user['id'] ?>">
+                    <input type="hidden" name="saldo" value="<?= $user['saldo'] ?>">
+                    <input type="hidden" name="total" value="<?= $total ?>">
+                    <button type="submit" class="btn btn-success" name="payProduk">Pay Now</button>
+                    <button type="submit" class="btn btn-danger" name="cancelTransaksi">Cancel</button>
+            </td>
+            </form>
             <td>Total : </td>
             <td>
                 <h4><?= number_format($total, 2, ',', '.'); ?></h4>

@@ -22,7 +22,12 @@
 
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="Harga_Pakaian" name="Harga_Pakaian" placeholder="Price Product" value="<?= $pakaian['Harga_Pakaian']; ?>">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">IDR. </div>
+                        </div>
+                        <input type="text" class="form-control" id="Harga_Pakaian" name="Harga_Pakaian" placeholder="Price Product" value="<?= $pakaian['Harga_Pakaian']; ?>">
+                    </div>
                 </div>
                 <div class="form-group">
                     <textarea name="Deskripsi_Pakaian" id="Deskripsi_Pakaian" cols="55" rows="10" placeholder="Decription Product"><?= $pakaian['Deskripsi_Pakaian']; ?></textarea>

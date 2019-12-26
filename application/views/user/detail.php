@@ -8,10 +8,35 @@
 
         <form action="<?= base_url('user/tambahCart'); ?>" method="post" enctype="multipart/form-data">
 
-          <input type="text" readonly class="form-control" id="Jenis_Pakaian" name="Jenis_Pakaian" value="<?= $pakaian["Jenis_Pakaian"]; ?>" style="background-color: white; border-color: white;">
-          <input type="text" readonly class="form-control" id="Nama_Pakaian" name="Nama_Pakaian" value="<?= $pakaian["Nama_Pakaian"]; ?>" style="background-color: white; border-color: white;">
-          <input type="text" readonly class="form-control" id="Merk_Pakaian" name="Merk_Pakaian" value="<?= $pakaian["Merk_Pakaian"]; ?>" style="background-color: white; border-color: white;">
-          <input type="text" readonly class="form-control" id="Total_Harga" name="Total_Harga" value="<?= $pakaian["Harga_Pakaian"]; ?>" style="background-color: white; border-color: white;">
+
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text" style="background-color: white; border-color:white;">Type:</div>
+            </div>
+            <input type="text" readonly class="form-control" id="Jenis_Pakaian" name="Jenis_Pakaian" value="<?= $pakaian["Jenis_Pakaian"]; ?>" style="background-color: white; border-color: white;">
+          </div>
+
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text" style="background-color: white; border-color:white;">Name:</div>
+            </div>
+            <input type="text" readonly class="form-control" id="Nama_Pakaian" name="Nama_Pakaian" value="<?= $pakaian["Nama_Pakaian"]; ?>" style="background-color: white; border-color: white;">
+          </div>
+
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text" style="background-color: white; border-color:white;">Brand:</div>
+            </div>
+            <input type="text" readonly class="form-control" id="Merk_Pakaian" name="Merk_Pakaian" value="<?= $pakaian["Merk_Pakaian"]; ?>" style="background-color: white; border-color: white;">
+          </div>
+
+
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text" style="background-color: white; border-color:white;">Price:</div>
+            </div>
+            <input type="text" readonly class="form-control" id="Total_Harga" name="Total_Harga" value="<?= $pakaian["Harga_Pakaian"]; ?>" style="background-color: white; border-color: white;">
+          </div>
 
 
           <select name="Ukuran_Pakaian" id="Ukuran_Pakaian" class="form-control mb-1">

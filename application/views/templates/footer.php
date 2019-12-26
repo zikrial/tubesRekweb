@@ -41,7 +41,7 @@
             <div class="modal-body">Are you sure want to logout ?</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="<?= base_url('auth/logout'); ?>">Logout</a>
+                <a class="btn btn-primary" href="<?= base_url('auth/logout'); ?>" style="background-color: #ff4da6">Logout</a>
             </div>
         </div>
     </div>

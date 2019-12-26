@@ -24,4 +24,10 @@ class Transaksi_model extends CI_model
         $this->db->where('Id_Transaksi', $Id);
         $this->db->delete('transaksi');
     }
+
+    public function hapusProduk()
+    {
+        $query = "TRUNCATE TABLE transaksi";
+        $this->db->query($query);
+    }
 }
