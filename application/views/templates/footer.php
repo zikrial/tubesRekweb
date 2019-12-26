@@ -152,6 +152,30 @@
             }
         });
     });
+
+    function validasiTipe() {
+    var sel = document.getElementById("Jenis_Pakaian");
+    var opt = sel.selectedIndex;
+    var inputtipe = document.getElementById("inputtipe");
+
+    if (opt == 0) {
+        inputtipe.style.display = "block";
+    } else {
+        inputtipe.style.display = "none";
+    }
+};
+
+function validasiHarga() {
+    var harga = document.getElementById("Harga_Pakaian").value;
+    var salahharga = document.getElementById("salahharga");
+    if (isNaN(harga)) {
+        salahharga.style.display = "block";
+        return true;
+    } else {
+        salahharga.style.display = "none";
+    }
+};
+
 </script>
 
 </body>

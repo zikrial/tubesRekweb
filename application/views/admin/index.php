@@ -66,13 +66,13 @@
 
                 <div class="modal-body">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Nama_Pakaian" name="Nama_Pakaian" placeholder="Name Product">
+                        <input type="text" class="form-control" id="Nama_Pakaian" name="Nama_Pakaian" placeholder="Name Product" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Merk_Pakaian" name="Merk_Pakaian" placeholder="Brand Product">
+                        <input type="text" class="form-control" id="Merk_Pakaian" name="Merk_Pakaian" placeholder="Brand Product" required>
                     </div>
                     <div class="form-group">
-                        <select name="Jenis_Pakaian" id="Jenis_Pakaian" class="form-control">
+                        <select name="Jenis_Pakaian" id="Jenis_Pakaian" class="form-control" onclick="validasiTipe()" required>
                             <option value="">Type Product</option>
                             <option value="Baju">Clothes</option>
                             <option value="Jaket">Jackets</option>
@@ -80,23 +80,25 @@
                             <option value="Rok">Skirts</option>
                         </select>
                     </div>
+                    <div id="inputtipe" class="text-danger" style="display:none"> Pilih Tipe</div>
                     <div class="form-group">
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">IDR. </div>
                             </div>
-                            <input type="text" class="form-control" id="Harga_Pakaian" name="Harga_Pakaian" placeholder="Price Product">
+                            <input type="text" class="form-control" id="Harga_Pakaian" name="Harga_Pakaian" placeholder="Price Product" onkeyup="validasiHarga()" required>
                         </div>
                     </div>
+                    <div id="salahharga" class="text-danger" style="display:none" > Harus Nomor!!</div>
                     <div class="form-group">
-                        <textarea name="Deskripsi_Pakaian" id="Deskripsi_Pakaian" cols="55" rows="10" placeholder="Decription Product"></textarea>
+                        <textarea name="Deskripsi_Pakaian" id="Deskripsi_Pakaian" cols="55" rows="10" placeholder="Decription Product" required></textarea>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-2">Picture</div>
                         <div class="row">
                             <div class="col-sm-9">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="Gambar_Pakaian">
+                                    <input type="file" class="custom-file-input" name="Gambar_Pakaian" required>
                                     <label class="custom-file-label" for="Gambar_Pakaian" name="Gambar_Pakaian">Choosen file</label>
                                 </div>
                             </div>
