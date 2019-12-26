@@ -6,6 +6,7 @@
     <!-- DataTables -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
+            <?= $this->session->flashdata('message'); ?>
             <h6 class="m-0 font-weight-bold text-primary">Table Product</h6>
         </div>
         <div class="card-body">

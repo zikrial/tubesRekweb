@@ -129,6 +129,8 @@
 <script src="<?= base_url('assets/'); ?>js/jquery.nice-select.min.js"></script>
 <script src="<?= base_url('assets/'); ?>js/mixitup.min.js"></script>
 <script src="<?= base_url('assets/'); ?>js/main.js"></script>
+<script src="<?= base_url('assets/'); ?>js/sweetalert2.all.min.js"></script>
+<script src="<?= base_url('assets/'); ?>js/myscript.js"></script>
 
 <script>
     $('.custom-file-input').on('change', function() {

@@ -6,10 +6,13 @@
             <input type="hidden" name="Id_Pakaian" value="<?= $pakaian['Id_Pakaian']; ?>">
             <div class="modal-body">
                 <div class="form-group">
+                    <input type="hidden" class="form-control" id="Id_Pakaian" name="Id_Pakaian" value="<?= $pakaian['Id_Pakaian']; ?>">
                     <input type="text" class="form-control" id="Nama_Pakaian" name="Nama_Pakaian" placeholder="Name Product" value="<?= $pakaian['Nama_Pakaian']; ?>">
+                    <?= form_error('Nama_Pakaian', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" id="Merk_Pakaian" name="Merk_Pakaian" placeholder="Brand Product" value="<?= $pakaian['Merk_Pakaian']; ?>">
+                    <?= form_error('Merk_Pakaian', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class=" form-group">
                     <select name="Jenis_Pakaian" id="Jenis_Pakaian" class="form-control" value="<?= $pakaian['Jenis_Pakaian']; ?>>
@@ -19,7 +22,7 @@
                         <option value="Celana">Pants</option>
                         <option value="Rok">Skirts</option>
                     </select>
-
+                    <?= form_error('Jenis_Pakaian', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <div class="input-group mb-2">
@@ -27,6 +30,7 @@
                             <div class="input-group-text">IDR. </div>
                         </div>
                         <input type="text" class="form-control" id="Harga_Pakaian" name="Harga_Pakaian" placeholder="Price Product" value="<?= $pakaian['Harga_Pakaian']; ?>">
+                        <?= form_error('Harga_Pakaian', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                 </div>
                 <div class="form-group">
@@ -35,7 +39,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" name="getubah">Edit</button>
+                <button type="submit" class="btn btn-primary" name="ubah">Edit</button>
             </div>
         </form>
     </div>
