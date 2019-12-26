@@ -23,7 +23,7 @@
                     <td><?= $t['Jumlah_Pakaian'] ?></td>
                     <td><?= number_format($t["Total_Harga"], 2, ',', '.'); ?></td>
                     <td>
-                        <a href="" class="badge badge-danger">delete</a>
+                        <a href="<?= base_url('user/deleteCart/') . $t['Id_Transaksi'] ?>" class="badge badge-danger" onclick="return confirm('Are you sure ?');">delete</a>
                     </td>
                 </tr>
                 <?php $total += $t["Total_Harga"] ?>

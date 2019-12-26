@@ -13,19 +13,20 @@
           <input type="text" readonly class="form-control" id="Merk_Pakaian" name="Merk_Pakaian" value="<?= $pakaian["Merk_Pakaian"]; ?>" style="background-color: white; border-color: white;">
           <input type="text" readonly class="form-control" id="Total_Harga" name="Total_Harga" value="<?= $pakaian["Harga_Pakaian"]; ?>" style="background-color: white; border-color: white;">
 
+
           <select name="Ukuran_Pakaian" id="Ukuran_Pakaian" class="form-control mb-1">
-            <option value="">Size Product</option>
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-            <option value="XL">XL</option>
-            <option value="XXL">XXL</option>
+            <option value="">Select Size</option>
+            <?php foreach ($ukuran as $u) : ?>
+              <option value="<?= $u; ?>"><?= $u; ?></option>
+            <?php endforeach; ?>
           </select>
           <input type="number" class="form-control mb-1" id="Jumlah_Pakaian" name="Jumlah_Pakaian" placeholder="Quantity" style="width: 110px">
           <button type="submit" class="btn btn-success mb-1" name="tambah"><i class="fas fa-fw fa-cart-plus"></i> Add to Cart</button>
           <a href="<?= base_url() ?>user" class="btn btn-primary">Back</a>
         </form>
       </div>
+      <h5>Decription :</h5>
+      <h6><?= $pakaian["Deskripsi_Pakaian"]; ?></h6>
     </div>
   </div>
 </div>

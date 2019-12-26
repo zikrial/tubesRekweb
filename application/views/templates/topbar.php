@@ -27,11 +27,11 @@
                   </li>
 
                   <li class="nav-item active">
-                    <a class="nav-link" href="<?= base_url('user') ?>">Cart</a>
+                    <a class="nav-link" href="<?= base_url('user/cart') ?>">Cart</a>
                   </li>
 
                   <li class="nav-item active">
-                    <a class="nav-link" href="<?= base_url('user') ?>">Top up</a>
+                    <a class="nav-link" href="<?= base_url('user') ?>" data-toggle="modal" data-target="#addSaldoModal">Top up</a>
                   </li>
 
                 </ul>
@@ -39,10 +39,11 @@
 
               <!-- end navbar -->
               <!-- Sidebar Toggle (Topbar) -->
-
+              <p class="mt-4">My Saldo : <?= number_format($user["saldo"], 2, ',', '.'); ?></p>
               <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                 <i class="fa fa-bars"></i>
               </button>
+
 
               <!-- Topbar Navbar -->
               <ul class="navbar-nav ml-auto">

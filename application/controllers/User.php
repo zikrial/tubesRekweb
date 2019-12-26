@@ -116,6 +116,7 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $data['pakaian'] = $this->db->get_where('pakaian', ['Id_Pakaian' => $id])->row_array();
+        $data['ukuran'] = ['S', 'M', 'L', 'XL', 'XXL'];
 
         $data['title'] =  'My Fashion';
         $this->load->view('templates/header', $data);
@@ -178,5 +179,29 @@ class User extends CI_Controller
         $this->load->view('templates/footer');
         $this->Transaksi_model->tambahTransaksi();
         redirect('user/cart');
+    }
+    public function deleteCart($id)
+    {
+        $this->load->model('Transaksi_model');
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['title'] = 'Delete Cart';
+        $this->Transaksi_model->hapusDataTransaksi($id);
+        $this->session->set_flashdata('flash', 'Dihapus');
+        redirect('user/cart');
+    }
+
+    public function topSaldo()
+    {
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $this->db->select('saldo');
+        $saldo = $this->db->get('user');
+
+        $tambah = $this->input->post('saldo');
+
+        $data = [
+            "saldo" => $this->input->post('saldo')
+        ];
+        $this->db->insert('user', $data);
     }
 }

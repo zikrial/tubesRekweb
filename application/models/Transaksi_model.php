@@ -18,4 +18,10 @@ class Transaksi_model extends CI_model
         ];
         return $this->db->insert('transaksi', $data);
     }
+
+    public function hapusDataTransaksi($Id)
+    {
+        $this->db->where('Id_Transaksi', $Id);
+        $this->db->delete('transaksi');
+    }
 }

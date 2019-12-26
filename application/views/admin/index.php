@@ -3,7 +3,7 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-    <!-- DataTales Example -->
+    <!-- DataTables -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Table Product</h6>
@@ -16,7 +16,6 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>#</th>
                             <th>Name</th>
                             <th>Brand</th>
                             <th>Type</th>
@@ -29,7 +28,6 @@
                     <tbody>
                         <?php foreach ($pakaian as $p) : ?>
                             <tr>
-                                <td><?= ++$start; ?></td>
                                 <td><?= $p['Nama_Pakaian'] ?></td>
                                 <td><?= $p['Merk_Pakaian'] ?></td>
                                 <td><?= $p['Jenis_Pakaian'] ?></td>
@@ -37,14 +35,13 @@
                                 <td><?= $p['Deskripsi_Pakaian'] ?></td>
                                 <td><img src="<?= base_url('assets/img/pakaian/') . $p['Gambar_Pakaian'] ?>" class="img-thumbnail" width="150px"></td>
                                 <td>
-                                    <a href="<?= base_url(); ?>admin/delete/<?= $p['Id_Pakaian']; ?>" class="badge badge-danger" onclick="return confirm('apakah anda yakin?');">delete</a>
-                                    <a href="<?= base_url(); ?>admin/edit/<?= $p['Id_Pakaian']; ?>" class="badge badge-success"  data-toggle="modal" data-target="#editProductModal">edit</a>
+                                    <a href="<?= base_url(); ?>admin/delete/<?= $p['Id_Pakaian']; ?>" class="badge badge-danger" onclick="return confirm('Are you sure ?');">delete</a>
+                                    <a href="<?= base_url(); ?>admin/ubah/<?= $p['Id_Pakaian']; ?>" class="badge badge-success">edit</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <?= $this->pagination->create_links(); ?>
             </div>
         </div>
     </div>
@@ -56,7 +53,7 @@
 <!-- End of Main Content -->
 
 <!-- Modal -->
-<div class="modal fade" id="newProductModal" tabindex="-1" role="dialog" aria-labelledby="newProductModalLabel" aria-hidden="true">
+<div class=" modal fade" id="newProductModal" tabindex="-1" role="dialog" aria-labelledby="newProductModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -66,6 +63,7 @@
                 </button>
             </div>
             <form action="<?= base_url('admin/tambah'); ?>" method="post" enctype="multipart/form-data">
+
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="text" class="form-control" id="Nama_Pakaian" name="Nama_Pakaian" placeholder="Name Product">
@@ -119,15 +117,16 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('admin/ubah'); ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url('admin/ubah'); ?>" method="post">
+                <input type="hidden" name="Id_Pakaian" value="<?= $p['Id_Pakaian']; ?>">
                 <div class="modal-body">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Nama_Pakaian" name="Nama_Pakaian" placeholder="Name Product">
+                        <input type="text" class="form-control" id="Nama_Pakaian" name="Nama_Pakaian" placeholder="Name Product" value="<?= $p['Nama_Pakaian']; ?>">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Merk_Pakaian" name="Merk_Pakaian" placeholder="Brand Product">
+                        <input type="text" class="form-control" id="Merk_Pakaian" name="Merk_Pakaian" placeholder="Brand Product" value="<?= $p['Merk_Pakaian']; ?>">
                     </div>
-                    <div class="form-group">
+                    <div class=" form-group">
                         <select name="Jenis_Pakaian" id="Jenis_Pakaian" class="form-control">
                             <option value="">Type Product</option>
                             <option value="Baju">Clothes</option>
@@ -135,28 +134,18 @@
                             <option value="Celana">Pants</option>
                             <option value="Rok">Skirts</option>
                         </select>
+
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Harga_Pakaian" name="Harga_Pakaian" placeholder="Price Product">
+                        <input type="text" class="form-control" id="Harga_Pakaian" name="Harga_Pakaian" placeholder="Price Product" value="<?= $p['Harga_Pakaian']; ?>">
                     </div>
                     <div class="form-group">
-                        <textarea name="Deskripsi_Pakaian" id="Deskripsi_Pakaian" cols="55" rows="10" placeholder="Decription Product"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-2">Picture</div>
-                        <div class="row">
-                            <div class="col-sm-9">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="Gambar_Pakaian">
-                                    <label class="custom-file-label" for="Gambar_Pakaian" name="Gambar_Pakaian">Choosen file</label>
-                                </div>
-                            </div>
-                        </div>
+                        <textarea name="Deskripsi_Pakaian" id="Deskripsi_Pakaian" cols="55" rows="10" placeholder="Decription Product"><?= $p['Deskripsi_Pakaian']; ?></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" name="tambah">Add</button>
+                    <a href="" type="submit" class="btn btn-primary" name="ubah">Edit</a>
                 </div>
             </form>
         </div>
