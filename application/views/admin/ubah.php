@@ -30,15 +30,15 @@
                             <div class="input-group-text">IDR. </div>
                         </div>
                         <input type="text" class="form-control" id="Harga_Pakaian" name="Harga_Pakaian" placeholder="Price Product" value="<?= $pakaian['Harga_Pakaian']; ?>">
-                        <?= form_error('Harga_Pakaian', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
+                    <?= form_error('Harga_Pakaian', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <textarea name="Deskripsi_Pakaian" id="Deskripsi_Pakaian" cols="55" rows="10" placeholder="Decription Product"><?= $pakaian['Deskripsi_Pakaian']; ?></textarea>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="<?= base_url('admin') ?>" class="btn btn-secondary">back</a>
                 <button type="submit" class="btn btn-primary" name="ubah">Edit</button>
             </div>
         </form>

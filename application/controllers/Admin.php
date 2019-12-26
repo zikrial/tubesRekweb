@@ -52,7 +52,7 @@ class Admin extends CI_Controller
                     $this->Pakaian_model->tambahDataPakaian($foto);
                 }
             }
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New Product added!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New Product has been added!</div>');
             redirect('admin');
         }
     }
@@ -113,6 +113,7 @@ class Admin extends CI_Controller
     public function delete($Id_Pakaian)
     {
         $this->Pakaian_model->hapusDataAdmin($Id_Pakaian);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Product has been removed!</div>');
         $this->session->set_flashdata('flash', 'Dihapus');
         redirect('admin');
     }
@@ -136,7 +137,7 @@ class Admin extends CI_Controller
             $this->load->view('admin/ubah', $data);
             $this->load->view('templates/footer');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Product edited!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Product has been edited!</div>');
             $this->Pakaian_model->ubahDataPakaian();
             redirect('admin');
         }
@@ -160,7 +161,7 @@ class Admin extends CI_Controller
             $this->load->view('admin/ubah', $data);
             $this->load->view('templates/footer');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Product edited!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Product has been edited!</div>');
             $this->Pakaian_model->ubahDataPakaian();
             redirect('admin');
         }

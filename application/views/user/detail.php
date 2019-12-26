@@ -32,12 +32,16 @@
             <input type="text" readonly class="form-control" id="Merk_Pakaian" name="Merk_Pakaian" value="<?= $pakaian["Merk_Pakaian"]; ?>" style="background-color: white; border-color: white;">
           </div>
 
+          <?php $harga = $pakaian["Harga_Pakaian"]; ?>
+
+          <input type="hidden" id="Total_Harga" name="Total_Harga" value="<?= $harga ?>">
+
 
           <div class="input-group mb-2">
             <div class="input-group-prepend">
               <div class="input-group-text" style="background-color: white; border-color:white;">Price:</div>
             </div>
-            <input type="text" readonly class="form-control" id="Total_Harga" name="Total_Harga" value="<?= $pakaian["Harga_Pakaian"]; ?>" style="background-color: white; border-color: white;">
+            <input type="text" readonly class="form-control" name="" value="IDR. <?= number_format($harga, 2, ',', '.'); ?>" style="background-color: white; border-color: white;">
           </div>
 
 

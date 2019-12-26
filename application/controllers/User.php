@@ -87,6 +87,7 @@ class User extends CI_Controller
                 $config['max_size']      = '2048';
                 $config['upload_path'] = './assets/img/profile/';
 
+                $this->upload->initialize($config);
                 $this->load->library('upload', $config);
 
                 if ($this->upload->do_upload('image')) {
@@ -97,7 +98,8 @@ class User extends CI_Controller
                     $new_image = $this->upload->data('file_name');
                     $this->db->set('image', $new_image);
                 } else {
-                    echo $this->upload->dispay_errors();
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
+                    redirect('user/profile');
                 }
             }
 
@@ -106,7 +108,7 @@ class User extends CI_Controller
             $this->db->update('user');
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Your profile has been updated!</div>');
-            redirect('user');
+            redirect('user/profile');
         }
     }
 
