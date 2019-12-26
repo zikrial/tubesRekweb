@@ -1,4 +1,6 @@
 <div class="card mb-3 ml-3" style="max-width: 600px;">
+
+  <?= $this->session->flashdata('message'); ?>
   <div class="row no-gutters">
     <div class="col-md-4">
       <img src="<?= base_url('assets/img/pakaian/') . $pakaian['Gambar_Pakaian'] ?>" class="card-img" style="width: 100%">
@@ -7,7 +9,7 @@
       <div class="card-body mb-5">
 
         <form action="<?= base_url('user/tambahCart'); ?>" method="post" enctype="multipart/form-data">
-
+          <input type="hidden" name="id" value="<?= $pakaian["Id_Pakaian"] ?>">
 
           <div class="input-group mb-2">
             <div class="input-group-prepend">

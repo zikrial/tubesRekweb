@@ -1,4 +1,7 @@
+<?= $this->session->flashdata('message'); ?>
 <div class="card mb-3 ml-3" style="max-width: 600px;">
+    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
+
     <table class="table table-hover">
         <thead>
             <tr>
@@ -49,9 +52,11 @@
                     <input type="hidden" name="saldo" value="<?= $user['saldo'] ?>">
                     <input type="hidden" name="total" value="<?= $total ?>">
                     <button type="submit" class="btn btn-success" name="payProduk">Pay Now</button>
-                    <button type="submit" class="btn btn-danger" name="cancelTransaksi">Cancel</button>
+                </form>
             </td>
-            </form>
+            <td>
+                <a href="<?= base_url('user/cancelTransaksi') ?>" class="btn btn-danger tombol-cancel" name="cancelTransaksi">Cancel</a>
+            </td>
             <td>Total : </td>
             <td>
                 <h4><?= number_format($total, 2, ',', '.'); ?></h4>

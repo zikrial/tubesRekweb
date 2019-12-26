@@ -166,18 +166,22 @@ class User extends CI_Controller
     public function tambahCart()
     {
 
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('Ukuran_Pakaian', 'Ukuran_Pakaian', 'required');
+        $this->form_validation->set_rules('Jumlah_Pakaian', 'Jumlah_Pakaian', 'required|is_natural|numeric');
+
         $this->load->model('Pakaian_model');
         $this->load->model('Transaksi_model');
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['title'] = 'Shopping Cart';
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('user/cart', $data);
-        $this->load->view('templates/footer');
-        $this->Transaksi_model->tambahTransaksi();
-        redirect('user/cart');
+        if ($this->form_validation->run() == false) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Please insert correctly!</div>');
+            redirect('user/detail/' . $this->input->post('id'));
+        } else {
+            $this->Transaksi_model->tambahTransaksi();
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Cart added!</div>');
+            redirect('user/cart');
+        }
     }
 
     public function deleteCart($id)
@@ -192,18 +196,27 @@ class User extends CI_Controller
 
     public function topSaldo()
     {
+
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $iduser = $this->input->post('id');
         $saldo = $this->input->post('saldo');
         $saldouser = $this->input->post('saldouser');
-
         $total = $saldo + $saldouser;
         $data = [
             "saldo" => $total
         ];
-        $this->db->where('id', $iduser);
-        $this->db->update('user', $data);
-        redirect('user');
+
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('saldo', 'Saldo', 'required');
+        if ($this->form_validation->run() == false) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Please select a voucher!</div>');
+            redirect('user');
+        } else {
+            $this->db->where('id', $iduser);
+            $this->db->update('user', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Saldo successfully added!</div>');
+            redirect('user');
+        }
     }
 
     public function payProduk()
@@ -216,20 +229,25 @@ class User extends CI_Controller
 
         if ($saldo > $total) {
             $pay = $saldo - $total;
+            $data = [
+                "saldo" => $pay
+            ];
+            $this->db->where('id', $iduser);
+            $this->db->update('user', $data);
+            $this->Transaksi_model->hapusProduk();
+            $this->session->set_flashdata('flash', 'Thank you for paying ☺');
+            redirect('user/cart');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">You dont have enough saldo!</div>');
+            redirect('user/cart');
         }
-        $data = [
-            "saldo" => $pay
-        ];
-        $this->db->where('id', $iduser);
-        $this->db->update('user', $data);
-        $this->Transaksi_model->hapusProduk();
-        redirect('user/cart');
     }
 
     public function cancelTransaksi()
     {
         $this->load->model('Transaksi_model');
         $this->Transaksi_model->hapusProduk();
+        $this->session->set_flashdata('flash', 'Your cart already deleted');
         redirect('user/cart');
     }
 }

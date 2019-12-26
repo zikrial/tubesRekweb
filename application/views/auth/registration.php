@@ -27,7 +27,7 @@
                                       <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Repeat Password">
                                   </div>
                               </div>
-                              <button type="submit" class="btn btn-primary btn-user btn-block">
+                              <button type="submit" class="btn btn-primary btn-user btn-block" style="background-color: #ff4da6;">
                                   Register Account
                               </button>
                           </form>

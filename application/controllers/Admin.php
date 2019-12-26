@@ -28,56 +28,48 @@ class Admin extends CI_Controller
     public function tambah()
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        // $this->form_validation->set_rules('Nama_Pakaian', 'Nama_Pakaian', 'required');
-        // $this->form_validation->set_rules('Merk_Pakaian', 'Merk_Pakaian', 'required');
-        // $this->form_validation->set_rules('Tipe_Pakaian', 'Tipe_Pakaian', 'required');
-        // $this->form_validation->set_rules('Harga_Pakaian', 'Harga_Pakaian', 'required');
-        // $this->form_validation->set_rules('Deskripsi_Pakaian', 'Deskripsi_Pakaian', 'required');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('Nama_Pakaian', 'Nama_Pakaian', 'required');
+        $this->form_validation->set_rules('Merk_Pakaian', 'Merk_Pakaian', 'required');
+        $this->form_validation->set_rules('Jenis_Pakaian', 'Jenis_Pakaian', 'required');
+        $this->form_validation->set_rules('Harga_Pakaian', 'Harga_Pakaian', 'required|is_natural|numeric');
 
-        // if ($this->form_validation->run() == false) {
-        // $data['title'] =  'Product Management';
-        // $this->load->view('templates/header', $data);
-        // $this->load->view('templates/sidebar', $data);
-        // $this->load->view('templates/topbar', $data);
-        // $this->load->view('admin/index', $data);
-        // $this->load->view('templates/footer');
+        if ($this->form_validation->run() == false) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger alert alert-dismissible fade show" role="alert">failed to add a new product, please fill out the form correctly!</div>');
+            redirect('admin');
+        } else {
+            $config['upload_path'] = './assets/img/pakaian/';
+            $config['allowed_types'] = 'jpg|png|jpeg|gif';
+            $config['max_size'] = '2048';  //2MB max
+            $config['max_width'] = '4480'; // pixel
+            $config['max_height'] = '4480'; // pixel
+            $config['file_name'] = $_FILES['Gambar_Pakaian']['name'];
+            $this->upload->initialize($config);
 
-
-        // } else {
-        //$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New menu added!</div>');
-        //redirect('admin/index');
-        $config['upload_path'] = './assets/img/pakaian/';
-        $config['allowed_types'] = 'jpg|png|jpeg|gif';
-        $config['max_size'] = '2048';  //2MB max
-        $config['max_width'] = '4480'; // pixel
-        $config['max_height'] = '4480'; // pixel
-        $config['file_name'] = $_FILES['Gambar_Pakaian']['name'];
-        $this->upload->initialize($config);
-
-        if (!empty($_FILES['Gambar_Pakaian']['name'])) {
-            if ($this->upload->do_upload('Gambar_Pakaian')) {
-                $foto = $this->upload->data();
-                $this->Pakaian_model->tambahDataPakaian($foto);
+            if (!empty($_FILES['Gambar_Pakaian']['name'])) {
+                if ($this->upload->do_upload('Gambar_Pakaian')) {
+                    $foto = $this->upload->data();
+                    $this->Pakaian_model->tambahDataPakaian($foto);
+                }
             }
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New Product added!</div>');
+            redirect('admin');
         }
-        redirect('admin');
-
-        // }
     }
 
-    public function role()
-    {
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+    // public function role()
+    // {
+    //     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data['title'] =  'Role';
+    //     $data['title'] =  'Role';
 
-        $data['role'] = $this->db->get('user_role')->result_array();
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('admin/role', $data);
-        $this->load->view('templates/footer');
-    }
+    //     $data['role'] = $this->db->get('user_role')->result_array();
+    //     $this->load->view('templates/header', $data);
+    //     $this->load->view('templates/sidebar', $data);
+    //     $this->load->view('templates/topbar', $data);
+    //     $this->load->view('admin/role', $data);
+    //     $this->load->view('templates/footer');
+    // }
 
     public function roleAccess($role_id)
     {
@@ -131,19 +123,46 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['pakaian'] = $this->db->get_where('pakaian', ['Id_Pakaian' => $Id_Pakaian])->row_array();
         $data['title'] =  'Edit Fashion';
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('admin/ubah', $data);
-        $this->load->view('templates/footer');
 
-        return $this->Pakaian_model->ubahDataPakaian();
-        redirect('admin');
+        $this->form_validation->set_rules('Nama_Pakaian', 'Nama Pakaian', 'required');
+        $this->form_validation->set_rules('Merk_Pakaian', 'Merk Pakaian', 'required');
+        $this->form_validation->set_rules('Jenis_Pakaian', 'Jenis Pakaian', 'required');
+        $this->form_validation->set_rules('Harga_Pakaian', 'Harga Pakaian', 'required|is_natural|numeric');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/ubah', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Product edited!</div>');
+            $this->Pakaian_model->ubahDataPakaian();
+            redirect('admin');
+        }
     }
 
     public function getubah()
     {
-        $this->Pakaian_model->ubahDataPakaian();
-        redirect('admin');
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['pakaian'] = $this->db->get_where('pakaian', ['Id_Pakaian' =>  $this->input->post('Id_Pakaian')])->row_array();
+        $data['title'] =  'Edit Fashion';
+
+        $this->form_validation->set_rules('Nama_Pakaian', 'Nama Pakaian', 'required');
+        $this->form_validation->set_rules('Merk_Pakaian', 'Merk Pakaian', 'required');
+        $this->form_validation->set_rules('Jenis_Pakaian', 'Jenis Pakaian', 'required');
+        $this->form_validation->set_rules('Harga_Pakaian', 'Harga Pakaian', 'required|is_natural|numeric');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/ubah', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Product edited!</div>');
+            $this->Pakaian_model->ubahDataPakaian();
+            redirect('admin');
+        }
     }
 }

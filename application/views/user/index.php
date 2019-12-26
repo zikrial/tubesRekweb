@@ -1,6 +1,8 @@
                 <!-- Begin Page Content -->
+                <?= $this->session->flashdata('message'); ?>
                 <h1 class=" mb-4 text-gray-800 text-center"><?= $title; ?></h1>
                 <div class="container-fluid">
+
                     <!-- Page Heading -->
                     <div class="row">
                         <?php foreach ($pakaian as $p) : ?> <div class="det-cards"> <img src="<?= base_url('assets/img/pakaian/') . $p['Gambar_Pakaian'] ?>" class="image-cards" style="width:100% ;height : 450px">
