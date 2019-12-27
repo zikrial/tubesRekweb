@@ -81,7 +81,7 @@
                             <option value="Rok">Skirts</option>
                         </select>
                     </div>
-                    <div id="inputtipe" class="text-danger" style="display:none"> Pilih Tipe</div>
+                    <div id="inputtipe" class="text-danger" style="display:none"> please choose type</div>
                     <div class="form-group">
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
@@ -90,9 +90,9 @@
                             <input type="text" class="form-control" id="Harga_Pakaian" name="Harga_Pakaian" placeholder="Price Product" onkeyup="validasiHarga()" required>
                         </div>
                     </div>
-                    <div id="salahharga" class="text-danger" style="display:none" > Harus Nomor!!</div>
+                    <div id="salahharga" class="text-danger" style="display:none"> must be a number!!</div>
                     <div class="form-group">
-                        <textarea name="Deskripsi_Pakaian" id="Deskripsi_Pakaian" cols="55" rows="10" placeholder="Decription Product" required></textarea>
+                        <textarea name="Deskripsi_Pakaian" id="Deskripsi_Pakaian" cols="55" rows="10" placeholder="Decription Product"></textarea>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-2">Picture</div>

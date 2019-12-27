@@ -238,7 +238,7 @@ class User extends CI_Controller
             $this->db->update('user', $data);
             $this->Transaksi_model->hapusProduk();
             $this->session->set_flashdata('flash', 'Thank you for paying ☺');
-            redirect('user/cart');
+            redirect('user');
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">You dont have enough saldo!</div>');
             redirect('user/cart');
