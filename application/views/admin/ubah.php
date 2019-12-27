@@ -2,7 +2,7 @@
 <div class="container-fluid">
     <div class="col-6 card">
         <h5 class="mt-3">Edit Product</h5>
-        <form action="<?= base_url('admin/getubah'); ?>" method="post">
+        <form action="<?= base_url('admin/getubah'); ?>" method="post" autocomplete="off">
             <input type="hidden" name="Id_Pakaian" value="<?= $pakaian['Id_Pakaian']; ?>">
             <div class="modal-body">
                 <div class="form-group">

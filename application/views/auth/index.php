@@ -62,7 +62,7 @@ $pakaian = $pakaian["pakaian"];
                         <div class="row">
                             <div class="col-lg-12">
                                 <h1>My Fashion</h1>
-                                <h2>Cool Clothes Place</h2>
+                                <h2 style="font-size: 50px;">Please login to buy our product</h2>
                                 <a href="#Product" class="primary-btn">See Product</a>
                             </div>
                         </div>

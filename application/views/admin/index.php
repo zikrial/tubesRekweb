@@ -63,7 +63,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('admin/tambah'); ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url('admin/tambah'); ?>" method="post" enctype="multipart/form-data" autocomplete="off">
 
                 <div class="modal-body">
                     <div class="form-group">
